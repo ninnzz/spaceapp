@@ -1,0 +1,133 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <title>Airvironment</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/Materialize/bin/materialize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+</head>
+
+<body ng-app="spaceappApp" ng-controller="MainCtrl">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <header>
+        <div class="container">
+            <a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
+        <ul id="nav-mobile" class="side-nav fixed">
+            <li class="logo green darken-1">
+                <span id="logo-container" href="#" class="brand-logo">
+                    <img class="responsive-img" src="images/air.svg" />
+                </span>
+            </li>
+            <!-- <li class="search">
+                <div class="search-wrapper card">
+                    <input id="search" ng-model="disasters"><i class="material-icons">search</i>
+                    <div class="search-results"></div>
+                </div>
+            </li> -->
+            <ul class="symptomsList">
+                <li class="symptoms overall">
+                    <p>
+                        <input type="radio" name="dataset" class="with-gap cough-green" value="all" ng-model="dataset" id="overall" />
+                        <label for="overall">Overall Air Pollution</label>
+                    </p>
+                </li>
+                <li class="symptoms cough">
+                    <p>
+                        <input type="radio" name="dataset" class="with-gap cough-green" value="cough" ng-model="dataset" id="cough" />
+                        <label for="cough">Cough</label>
+                    </p>
+                </li>
+                <li class="symptoms breath">
+                    <p>
+                        <input type="radio" name="dataset" class="with-gap breath-blue" value="breath" ng-model="dataset" id="breath" />
+                        <label for="breath">Shortness of Breath</label>
+                    </p>
+                </li>
+                <li class="symptoms sneezing">
+                    <p>
+                        <input type="radio" name="dataset" class="with-gap sneeze-yellow" value="sneeze" ng-model="dataset" id="sneezing" />
+                        <label for="sneezing">Sneezing</label>
+                    </p>
+                </li>
+            </ul>
+            <!-- <ul class="feedbackList">
+                <li>
+                    <h5><label>Help Airvironment</label></h5>
+                </li>
+                <li class="feedback-button">
+                    <div class="row">
+                        <button data-target="modal1" class="modal-trigger btn waves-effect waves-light col s12 light-green darken-3">Help
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </li>
+            </ul> -->
+        </ul>
+    </header>
+    <main>
+        <div ng-view=""></div>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+    </main>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+    ! function(A, n, g, u, l, a, r) {
+        A.GoogleAnalyticsObject = l, A[l] = A[l] || function() {
+                (A[l].q = A[l].q || []).push(arguments)
+            }, A[l].l = +new Date, a = n.createElement(g),
+            r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+    }(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+    </script>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/Materialize/bin/materialize.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/disasterlist.js"></script>
+    <!-- endbuild -->
+    <script>
+    $('.modal-trigger').leanModal();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+// bower:scss
+// endbower
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+header,
+main,
+footer {
+    padding-left: 240px;
+}
+
+ul.side-nav.fixed {
+    overflow: hidden;
+    li {
+        line-height: 44px;
+        &.active {
+            background-color: rgba(0, 0, 0, .05);
+        }
+        p{
+            text-overflow: ellipsis;
+            font-size: 13px;
+            line-height: 44px;
+            height: 44px;
+            padding-left: 14px;
+        }
+        h5{
+          label {
+            font-size: 1rem;
+          }
+          padding-left: 14px;
+        }
+    }
+    // Only show scrollbar on hover
+    &:hover {
+        overflow-y: auto;
+    }
+}
+input[type=range] + .thumb.active .value{
+    margin-left: 0px;
+    margin-top: -10px;
+    font-size: 10px;
+}
+
+/********************
+  Index Page Styles
+********************/
+
+.angular-google-map-container {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 240px;
+}
+
+// custom styled sidebar
+ul.side-nav.fixed li.logo {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    &:hover,
+    #logo-container:hover {
+        background-color: transparent;
+    }
+}
+
+// Search
+#nav-mobile li.search {
+    &:hover {
+        background-color: #fff;
+    }
+    left: 0;
+    right: 0;
+    top: 120px;
+    margin-top: 1px;
+    padding: 1px 0 0 0;
+    z-index: 2;
+    margin-bottom: 24px;
+    .search-wrapper {
+        &.focused {
+            margin: 0;
+        }
+        margin: 0 12px;
+        transition: margin .25s ease;
+        input#search {
+            &:focus {
+                outline: none;
+            }
+            display: block;
+            font-size: 16px;
+            font-weight: 300;
+            width: 100%;
+            height: 45px;
+            margin: 0;
+            padding: 0 45px 0 15px;
+            border: 0;
+        }
+        i.material-icons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    }
+}
+.symptomsList {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #43A047;
+  .symptoms-title {
+    
+    padding-left: 8px;
+  }
+}
+.symptoms {
+  
+  
+  label {
+    color: rgba(0,0,0,0.90);
+  }
+}
+.symptoms.cough {
+    border-right-width: 8px!important;
+    border-right: 0 solid #558b2f;
+    border-left-width: 8px!important;
+    border-left: 0 solid #558b2f;
+  }
+
+.symptoms.breath {
+    border-right-width: 8px!important;
+    border-right: 0 solid #0277bd;
+    border-left-width: 8px!important;
+    border-left: 0 solid #0277bd;    
+  }
+
+
+.symptoms.sneezing {
+    border-right-width: 8px!important;
+    border-right: 0 solid #f9a825;
+    border-left-width: 8px!important;
+    border-left: 0 solid #f9a825;
+  }
+
+
+.symptoms.itchy {
+    border-right-width: 8px!important;
+    border-right: 0 solid #c62828;
+    border-left-width: 8px!important;
+    border-left: 0 solid #c62828;    
+  }
+
+.symptoms.overall {
+    border-right-width: 8px!important;
+    border-right: 0 solid #6a1b9a;
+    border-left-width: 8px!important;
+    border-left: 0 solid #6a1b9a;    
+  }
+
+
+.locationList {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #43A047;
+  .location-dropdown {
+    .switch{
+      padding-left: 20px;
+    }
+    .range-field {
+      padding-right: 14px;
+    }
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+.feedbackList {
+  padding-top: 24px;
+  .feedback-button {
+    padding: 10px;
+  }
+}
+
