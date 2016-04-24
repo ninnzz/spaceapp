@@ -1,0 +1,9 @@
+PyMySQL==0.6.7
+apturl==0.5.2ubuntu4
+nmi-mysql==0.64.1
+mutagen
+boto
+requests
+flask-cors
+Flask-Mail
+Flask
