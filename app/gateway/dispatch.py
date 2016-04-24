@@ -55,11 +55,13 @@ def receive_message(res):
     """
     help_msg =  'AirVironment allows everyone to submit a rating for  air quality of a place.\n\n'
     help_msg += 'All ratings are on a 1-10 scale, 10 being the highest\n'
-    help_msg += 'Just send: do rating <air quality>, <coughing>,  <shortness of breath>, <sneezing> @ <location>\n'
+    help_msg += 'Just send: do rating <air pollution>, <coughing>,  <shortness of breath>, <sneezing> @ <location>\n'
     help_msg += 'Example: do rating 8,7,6,6 @ eastwood quezon city philippines'
 
     invalid_location = 'Sorry, we cannot find that location'
-    success_msg = 'The monkeys are now processing your feedback! The average air quality in your place is 0! '
+    success_msg = 'The monkeys are now processing your feedback! The average air pollution rating in your place is  '
+    low_quality = 'Seems there are pollutants causing this, please coordinate with your local government'
+    high_quality = 'Wow! Seems you are breathing good air overthere. Lets try to keep it that way by protecting the environment.'
 
     notify_url = 'http://6848a814.ngrok.io/gateway/'
     
@@ -117,7 +119,42 @@ def receive_message(res):
         longitude = location.longitude
         latitude = location.latitude
 
-        # averages = gateway.get_data_by_point(longitude, latitude, 10)
+        average = 0
+        health_index = 0
+        _ap_sum = 0
+        _ac_sum = 0
+        _sb_sum = 0
+        _s_sum = 0
+
+        to_average = air_check.get_data_by_point(
+            longitude, latitude, 15)
+
+        for item in to_average:
+            _ap_sum += item['air_pollution']
+            _ac_sum += item['caugh']
+            _sb_sum += item['shortness_of_breath']
+            _s_sum += item['sneezing']
+
+        if len(to_average) != 0:
+            average = _ap_sum / len(to_average)
+            health_index += (_ac_sum / len(to_average))
+            health_index += (_sb_sum / len(to_average))
+            health_index += (_s_sum / len(to_average))
+            
+            success_msg += str(round(average,2)) + ' of 10!\n\n'
+
+            if average > 6:
+                success_msg += low_quality + '\n\n'
+            elif average < 4:
+                success_msg += high_quality + '\n\n'
+
+            if health_index > 20:
+                success_msg += 'We also noticed that there are lots of symptoms of coughing, shortness of breath, sneezing, etc in your area. '
+                success_msg += 'It is highly recommended to wear face mask or go to the doctor for checkup. \n\n'
+
+        else:
+            success_msg += '"cannot be determine". We are still gathering information about that area.'
+
         cols =  '''
                     `country`, `state`, `raw_location`, `longitude`,
                     `latitude`, `air_pollution`, `caugh`, `shortness_of_breath`,

@@ -28,7 +28,7 @@ def get_data_by_point(_long, _lat, km):
                     cos( radians( longitude ) - radians(%s) ) + sin( radians(%s) ) * 
                     sin( radians( latitude ) ) ) 
                 ) AS distance 
-            FROM air_check_data HAVING distance < %s
+            FROM air_check_data HAVING distance < %s OR distance IS NULL
         '''
 
     db = nmi_mysql.DB(config['MYSQL_SPACEAPP'], True)
